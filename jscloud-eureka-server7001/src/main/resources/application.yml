@@ -1,0 +1,21 @@
+server:
+    port: 7001
+
+
+
+#集群版， 互相注册 ， 相互首望
+eureka:
+    instance:
+        hostname: eureka7001.com
+    client:
+        register-with-eureka: false
+        fetch-registry: false
+        service-url:
+#            defaultZone: http://eureka7002.com:7002/eureka/
+#      按把原单机版的hostnname, 及prot 改为其他 Eureka 服务器的,
+            defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+#    server:
+#       关闭自我保护机制,保证不可用服务被及时清除
+#        enable-self-preservation: false
+#       默认接收心跳间隔时间 单位 毫秒: 默认为90秒,
+#        eviction-interval-timer-in-ms: 2000

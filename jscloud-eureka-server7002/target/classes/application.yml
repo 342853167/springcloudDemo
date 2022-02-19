@@ -1,0 +1,25 @@
+server:
+  port: 7002
+
+#集群版， 互相注册 ， 相互首望
+eureka:
+  instance:
+    hostname: eureka7002.com
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/
+#      按把原单机版的hostnname, 及prot 改为其他 Eureka 服务器的
+#      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+
+# 这是单机版
+#eureka:
+#  instance:
+#    hostname: localhost
+#  client:
+#    register-with-eureka: false
+#    fetch-registry: false
+#    service-url:
+#      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+#
